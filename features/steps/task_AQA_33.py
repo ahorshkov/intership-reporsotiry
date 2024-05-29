@@ -34,16 +34,16 @@ def click_on_text(context):
     context.app.main_page.click_on_text()
 
 
-@then('Open filter window')
+@when('Open filter window')
 def open_filter_window(context):
     context.app.main_page.open_filter_window()
 
 
-@when('Select “Newly Launched”')
+@then('Select “Newly Launched”')
 def open_newlaunch_filter(context):
     context.app.main_page.open_newlaunch_filter()
 
 
-@then('Verify Newly Launched tag for displayed products')
+@when('Verify Newly Launched tag for displayed products')
 def verify_newlaunch_tag(context):
     context.app.main_page.verify_newlaunch_tag()

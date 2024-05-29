@@ -8,6 +8,6 @@ Feature: Test case AQA_33
     When Click on Continue button
     Then Verify Andrii Horshkov logged in
     Then Click on Off-plan at the left side menu
-    Then Open filter window
-    When Select “Newly Launched”
-    Then Verify Newly Launched tag for displayed products
+    When Open filter window
+    Then Select “Newly Launched”
+    When Verify Newly Launched tag for displayed products
