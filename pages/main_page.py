@@ -23,7 +23,7 @@ class MainPage(Page):
         sleep(7)
 
     def verify_newlaunch_tag(self):
-        all_listing = self.find_elements(*self.NEW_LAUNCHED_LISTING)  # [WebEl1, WebEl2, WebEl3, WebEl4]
+        all_listing = self.find_elements(*self.NEW_LAUNCHED_LISTING)
 
         for listing in all_listing:
             title = listing.find_element(*self.NEW_LAUNCHED_LISTING).text

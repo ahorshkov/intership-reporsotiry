@@ -23,7 +23,6 @@ def password_field(context,expected_field):
 def submit_login(context):
     context.app.signin_page.click_submit_login()
 
-
 @then('Verify {user} logged in')
 def verify_login(context,user):
     context.app.signin_page.verify_user_loggedin(user)

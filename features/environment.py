@@ -67,7 +67,6 @@ def after_step(context, step):
         #screenshot
         # context.app.base_page.save_screenshot(step)
 
-
 def after_scenario(context, feature):
     #context.driver.delete_all_cookies()
     context.driver.quit()

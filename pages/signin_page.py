@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 from pages.base_page import Page
 from time import sleep
 
-
 class SignInPage(Page):
     EMAIL_FIELD_NAME = (By.CSS_SELECTOR, "input[id='email-2']")
     PASSWORD_FIELD_NAME = (By.CSS_SELECTOR, "input[id='field']")
