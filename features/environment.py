@@ -7,10 +7,10 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 
 from app.application import Application
-# from support.logger import logger
+from support.logger import logger
 
 #  Run Behave tests with Allure results
-# behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/target_app_ui_tests.feature
+#behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/target_app_ui_tests.feature
 
 
 def browser_init(context, scenario_name):
@@ -49,29 +49,29 @@ def browser_init(context, scenario_name):
 
     ## BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'horshkovandrii_eKmYwc'
-    bs_key = '3xyM47URfcye9sGyzgju'
+    #bs_user = 'horshkovandrii_eKmYwc'
+    #bs_key = '3xyM47URfcye9sGyzgju'
     #bs_user = '********'
     #bs_key = '*********'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
 
-    options = Options()
-    bstack_options = {
-        'os': 'Windows',
-        'osVersion': '10',
-        'browserName': 'Chrome',
-        'os': 'OS X',
-        'osVersion': 'Sonoma',
+    #options = Options()
+    #bstack_options = {
+     #   'os': 'Windows',
+      #  'osVersion': '10',
+      #  'browserName': 'Chrome',
+      #  'os': 'OS X',
+      #  'osVersion': 'Sonoma',
         #        'osVersion': 'Windows',
-        'browserName': 'Safari',
+      #  'browserName': 'Safari',
         #         'browserName': 'Chrome',
-        'browserVersion': '17.3',
+      #  'browserVersion': '17.3',
         #         'browserVersion': 'latest_version',
-        'sessionName': 'Test AQA_33'
-    }
+       # 'sessionName': 'Test AQA_33'
+    #}
 
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+   # options.set_capability('bstack:options', bstack_options)
+   # context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
@@ -81,21 +81,21 @@ def browser_init(context, scenario_name):
 
 
 def before_scenario(context, scenario):
-    # logger.info(f'Started scenario: , {scenario.name}')
-    print('\nStarted scenario: ', scenario.name)
+    logger.info(f'Started scenario: , {scenario.name}')
+    #print('\nStarted scenario: ', scenario.name)
     browser_init(context, scenario.name)
 
 
 def before_step(context, step):
-    print('\nStarted step: ', step)
-    # logger.info(f'Started scenario: , {step}')
+   # print('\nStarted step: ', step)
+    logger.info(f'Started scenario: , {step}')
 
 
 def after_step(context, step):
     if step.status == 'failed':
-        # logger.warning(f'Step failed: , {step}')
+        logger.warning(f'Step failed: , {step}')
         context.app.base_page.save_screenshot(step)
-        print('\nStep failed: ', step)
+        #print('\nStep failed: ', step)
 
 
 def after_scenario(context, feature):
