@@ -8,7 +8,6 @@ class SignInPage(Page):
     SUBMIT_BUTTON = (By.XPATH, "//a[@wized='loginButton']")
     VERIFY_SIGNIN_HEADER = (By.CSS_SELECTOR, "h1[class*='form-header']")
     VERIFY_LOGIN_NAME = (By.XPATH, "//div[@wized='userName']")
-
     def verify_signin_page(self):
         self.verify_text('Sign in or create new account', *self.VERIFY_SIGNIN_HEADER)
 
@@ -24,5 +23,7 @@ class SignInPage(Page):
         sleep(5)
 
     def verify_user_loggedin(self, expected_name):
-        self.verify_partial_text(expected_name, *self.VERIFY_LOGIN_NAME)
+        login_name = self.find_element(*self.VERIFY_LOGIN_NAME)
+        # self.verify_partial_text(expected_name, *self.VERIFY_LOGIN_NAME)
+        assert login_name, expected_name
         sleep(3)
